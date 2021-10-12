@@ -3,7 +3,6 @@ const path = require('path');
 
 const Post = require(path.resolve('src', 'database', 'models', 'Post'))
 
-
 const defaultRules = {
   title: {
     type: String,
@@ -39,7 +38,7 @@ const updateRules = new Schema({
     type: Number,
     required: true,
     message: {
-      required: 'O user_id é um campo obrigatório.'
+      required: 'O id é um campo obrigatório.'
     }
   },
   ...defaultRules,
@@ -79,8 +78,6 @@ const updatePostValidator = async (req, res, next) => {
 
   next();
 }
-
-
 
 module.exports = {
   createPostValidator,

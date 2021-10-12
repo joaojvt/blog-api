@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "migrate:up": "npx knex migrate:up",
     "migrate:down": "npx knex migrate:down",
-    "seeds": "npx knex seed:run",
-    "deploy": "sls deploy"
+    "seeds": "npx knex seed:run"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,10 @@
     "express": "^4.17.1",
     "express-validator": "^6.12.2",
     "knex": "^0.95.11",
+    "mysql": "^2.18.1",
     "mysql2": "^2.3.0",
+    "pg": "^8.7.1",
+    "postgres": "^1.0.2",
     "valivar": "^6.2.11"
   },
   "devDependencies": {

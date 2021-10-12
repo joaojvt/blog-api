@@ -1,9 +1,11 @@
 const express = require('express');
 const routes = express.Router()
-const PostController = require('./controllers/Post');
-const { createPostValidator, updatePostValidator } = require('./middlewares/validators/PostValidation');
+const postController = require('./controllers/Post');
 
-const postController = new PostController()
+const {
+  createPostValidator,
+  updatePostValidator
+} = require('./middlewares/validators/PostValidation');
 
 routes.get('/post', postController.findAll.bind(postController))
 routes.get('/post/:id', postController.findById.bind(postController))
