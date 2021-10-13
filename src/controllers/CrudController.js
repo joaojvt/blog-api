@@ -16,13 +16,13 @@ class CrudController {
   }
 
   async create(req, res) {
-    const obj = req.body
+    const { body } = req
 
     try {
-      await this.model.insert(obj)
+      await this.model.insert(body)
       res.sendStatus(201)
     } catch (error) {
-      res.sendStatus(500)
+      res.sendStatus(422)
     }
   }
 
@@ -33,7 +33,7 @@ class CrudController {
       await this.model.update(obj)
       res.sendStatus(201)
     } catch (error) {
-      res.sendStatus(500)
+      res.sendStatus(422)
     }
   }
 

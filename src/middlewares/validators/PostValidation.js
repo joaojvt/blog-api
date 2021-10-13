@@ -19,7 +19,7 @@ const defaultRules = {
     length: { min: 6, max: 100 },
     message: {
       required: 'O conteudo é um campo obrigatório.',
-      length: 'O título deve ter no mínimo 6 caracteres.',
+      length: 'O conteúdo deve ter no mínimo 6 caracteres.',
     }
   },
   user_id: {
@@ -44,7 +44,7 @@ const updateRules = new Schema({
   ...defaultRules,
 })
 
-const createPostValidator = async (req, res, next) => {
+const createPostRules = async (req, res, next) => {
   const { body } = req;
   const erros = createRules.validate(body)
 
@@ -57,7 +57,7 @@ const createPostValidator = async (req, res, next) => {
   next();
 }
 
-const updatePostValidator = async (req, res, next) => {
+const updatePostRules = async (req, res, next) => {
   const { body } = req;
   const erros = updateRules.validate(body)
 
@@ -80,6 +80,6 @@ const updatePostValidator = async (req, res, next) => {
 }
 
 module.exports = {
-  createPostValidator,
-  updatePostValidator
+  createPostRules,
+  updatePostRules
 }

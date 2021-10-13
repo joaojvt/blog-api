@@ -5,6 +5,7 @@ exports.up = function (knex) {
       table.increments('id').primary();
       table.string('name', 255).notNullable();
       table.string('email', 255).unique();
+      table.string('passwd_hash', 255).notNullable();
       table.timestamp('email_verified_at', { precision: 6 })
       table.dateTime('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP'))
       table.dateTime('updated_at').defaultTo(knex.raw('NULL ON UPDATE CURRENT_TIMESTAMP'))
